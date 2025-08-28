@@ -1,4 +1,5 @@
 import "../game/lobby.jmc";
+import "../game/savestate.jmc";
 import "scoreboards.jmc";
 import "../util/roles.jmc";
 

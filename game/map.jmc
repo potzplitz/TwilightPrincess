@@ -1,0 +1,9 @@
+class Fairycrate {
+    function spawn() {
+
+    }
+}
+
+class Npcs {
+    function spawn();
+}

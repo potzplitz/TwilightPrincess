@@ -32,3 +32,9 @@ function lobby_splash() {
         execute if score @p devmessages matches 1.. run tellraw @p {"text":"Debug messages are currently on. You can disable them in the settings.","color":"gray"};
     }
 }
+
+function lobby_particles() {
+    if($lobbyEnabled) {
+        particle minecraft:portal -64 35 -3537 0.2 1 0.2 0.2 10;
+    }
+}

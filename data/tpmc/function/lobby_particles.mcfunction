@@ -1,0 +1,1 @@
+execute if score $lobbyEnabled __variable__ matches 1.. run particle minecraft:portal -64 35 -3537 0.2 1 0.2 0.2 10

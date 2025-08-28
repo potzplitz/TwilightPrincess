@@ -1,0 +1,19 @@
+class savestate {
+    function save() {
+        
+    }
+
+    function load() {
+
+    }
+}
+
+class reset {
+    function hard() {
+
+    }
+
+    function soft() {
+
+    }
+}
