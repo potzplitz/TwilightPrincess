@@ -1,0 +1,9 @@
+import "../game/lobby.jmc";
+import "scoreboards.jmc";
+import "../util/roles.jmc";
+
+function load() {
+    //TODO: save(); reset();
+    to_lobby();
+    init_scoreboards();
+}

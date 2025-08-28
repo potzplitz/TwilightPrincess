@@ -1,0 +1,15 @@
+// main
+import "main/tick.jmc";
+import "main/load.jmc";
+
+// game
+import "game/lobby.jmc";
+
+// ------------------------------ \\
+
+// called when the Datapack reloads
+load();
+
+function __tick__() {
+    tick(); // called every tick
+}

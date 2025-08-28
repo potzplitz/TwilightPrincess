@@ -1,0 +1,11 @@
+function devrole() {
+    $devmessages = scoreboard players get @s devmessages;
+
+    if($devmessages != 1) {
+        Text.tellraw(@s, "§2You have been assigned the dev role!");
+        scoreboard players set @s devmessages 1;
+    } else {
+        Text.tellraw(@s, "§4Dev role removed!");
+        scoreboard players set @s devmessages 0;
+    }
+}

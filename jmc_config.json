@@ -1,0 +1,7 @@
+{
+    "namespace": "tpmc",
+    "description": "Twilight Princess in Minecraft",
+    "pack_format": "71",
+    "target": "main.jmc",
+    "output": "."
+}

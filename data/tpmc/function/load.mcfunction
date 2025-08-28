@@ -1,0 +1,2 @@
+function tpmc:to_lobby
+function tpmc:init_scoreboards
