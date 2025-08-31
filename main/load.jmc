@@ -8,6 +8,6 @@ import "../util/roles.jmc";
 function load() {
     to_lobby();
     init_scoreboards();
-    savestate.save();
-    reset.soft();
+    Savestate.save();
+    Savestate.Reset.soft();
 }

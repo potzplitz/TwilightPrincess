@@ -1,4 +1,6 @@
-class savestate {
+import "items.jmc";
+
+class Savestate {
     function save() {
         
     }
@@ -6,14 +8,18 @@ class savestate {
     function load() {
 
     }
-}
 
-class reset {
-    function hard() {
-
+    function new() {
+        Items.wooden_sword();
     }
 
-    function soft() {
+    class Reset {
+        function hard() {
 
+        }
+
+        function soft() {
+
+        }
     }
 }

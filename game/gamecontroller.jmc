@@ -1,9 +1,24 @@
 import "rupee.jmc";
+import "savestate.jmc";
+import "player.jmc";
 
 function startroutine() {
     Grass.place();
+    Player.prepare_player();
+
+    if($newgame != 1) { // Load game
+        Savestate.load();
+
+    } else { // New game
+        Savestate.new();
+    }
 }
 
 function quitroutine() {
     Grass.remove();
+    Savestate.save();
+}
+
+function autosave() {
+    
 }

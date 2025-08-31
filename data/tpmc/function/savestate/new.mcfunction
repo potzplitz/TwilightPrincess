@@ -1,0 +1,1 @@
+function tpmc:items/wooden_sword

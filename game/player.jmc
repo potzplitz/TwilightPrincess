@@ -1,0 +1,11 @@
+class Player {
+    function prepare_player() {
+        attribute @p minecraft:max_health base set 6;
+        clear @p;
+    }    
+
+    function reset_player() {
+        clear @p;
+        attribute @p minecraft:max_health base set 20;
+    }
+}
