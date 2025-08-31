@@ -4,6 +4,7 @@ import "main/load.jmc";
 
 // game
 import "game/lobby.jmc";
+import "game/gamecontroller.jmc";
 
 // ------------------------------ \\
 

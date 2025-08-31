@@ -1,0 +1,9 @@
+import "rupee.jmc";
+
+function startroutine() {
+    Grass.place();
+}
+
+function quitroutine() {
+    Grass.remove();
+}

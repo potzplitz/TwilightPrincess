@@ -1,3 +1,14 @@
 function spawn_rupeespot() {
     summon marker ~ ~ ~ {Tags:["deventity","rupeespawn"]};
 }
+
+class Grass {
+    function place() {
+        execute at @e[tag=rupeespawn] run fill ~-1 ~ ~-1 ~1 ~ ~1 short_grass replace air;
+    }
+
+    function remove() {
+        execute at @e[tag=rupeespawn] run fill ~-1 ~ ~-1 ~1 ~ ~1 air replace short_grass;
+    }
+}
+

@@ -1,0 +1,1 @@
+execute at @e[tag=rupeespawn] run fill ~-1 ~ ~-1 ~1 ~ ~1 short_grass replace air
