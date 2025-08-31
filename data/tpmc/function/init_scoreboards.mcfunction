@@ -1,11 +1,2 @@
 scoreboard objectives add devmessages dummy
-scoreboard objectives add rupeeCounter dummy
-scoreboard objectives add slingshotAmmo dummy
-scoreboard objectives add objective dummy
-scoreboard objectives add bottlecount dummy
-scoreboard objectives add isWolf dummy
-scoreboard objectives add kidsact dummy
-scoreboard objectives add kidsactSuccess dummy
-scoreboard objectives add seedXScore dummy
-scoreboard objectives add seedYScore dummy
-scoreboard objectives add seedZScore dummy
+scoreboard objectives add devemitter_toggle dummy

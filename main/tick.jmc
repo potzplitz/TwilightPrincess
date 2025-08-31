@@ -1,5 +1,9 @@
 import "../game/lobby.jmc";
+import "../game/fairy.jmc";
+import "../util/roles.jmc";
 
 function tick() {
     lobby_particles();
+    animate_fairy();
+    devrole.devemitter();
 }

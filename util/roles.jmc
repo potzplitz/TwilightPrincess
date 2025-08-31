@@ -1,11 +1,36 @@
-function devrole() {
-    $devmessages = scoreboard players get @s devmessages;
+class devrole {
+    function toggle() {
+        $devmessages = scoreboard players get @p devmessages;
 
-    if($devmessages != 1) {
-        Text.tellraw(@s, "§2You have been assigned the dev role!");
-        scoreboard players set @s devmessages 1;
-    } else {
-        Text.tellraw(@s, "§4Dev role removed!");
-        scoreboard players set @s devmessages 0;
+        if($devmessages != 1) {
+            Text.tellraw(@s, "§2You have been assigned the dev role!");
+            effect give @e[tag=deventity] glowing infinite 255 true;
+            scoreboard players set @p devmessages 1;
+            
+        } else {
+            Text.tellraw(@s, "§4Dev role removed!");
+            effect clear @e[tag=deventity] glowing;
+            scoreboard players set @p devmessages 0;
+        }
+    }
+
+    function toggle_devemitter() {
+        $devemitter_toggle = scoreboard players get @p devemitter_toggle;
+
+        if($devemitter_toggle == 0) {
+            scoreboard players set @p devemitter_toggle 1;
+            Text.tellraw(@s, "§2dev emitter activated!");
+        } else {
+            scoreboard players set @p devemitter_toggle 0;
+            Text.tellraw(@s, "§4dev emitter deactivated!");
+        }
+    }
+
+    function devemitter() { 
+        $devemitter_toggle = scoreboard players get @p devemitter_toggle;
+
+        if(($devmessages != 1) && ($devemitter_toggle != 0)) {
+            execute as @e[tag=deventity] at @s run particle minecraft:portal ~ ~ ~ 0 0 0 0.3 10;
+        }
     }
 }

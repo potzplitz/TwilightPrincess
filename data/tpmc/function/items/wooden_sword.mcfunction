@@ -1,0 +1,1 @@
+give @p wooden_sword[can_break=[{blocks:"short_grass"},{blocks:"pumpkin"},{blocks:"skeleton_skull"},{blocks:"dead_bush"}],tooltip_display={hidden_components:["can_break"]},custom_name={"color":"gray","text":"Wooden Sword"}] 1

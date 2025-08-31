@@ -1,10 +1,13 @@
 import "../game/lobby.jmc";
 import "../game/savestate.jmc";
+import "../game/items.jmc";
+import "../game/rupee.jmc";
 import "scoreboards.jmc";
 import "../util/roles.jmc";
 
 function load() {
-    //TODO: save(); reset();
     to_lobby();
     init_scoreboards();
+    savestate.save();
+    reset.soft();
 }

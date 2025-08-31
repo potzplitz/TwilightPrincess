@@ -1,0 +1,1 @@
+execute if score $startFairy __variable__ matches 1.. run function tpmc:__private__/if_else/3

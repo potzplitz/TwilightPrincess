@@ -1,1 +1,3 @@
 function tpmc:lobby_particles
+function tpmc:animate_fairy
+function tpmc:devrole/devemitter

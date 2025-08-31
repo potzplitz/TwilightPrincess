@@ -1,0 +1,3 @@
+function spawn_rupeespot() {
+    summon marker ~ ~ ~ {Tags:["deventity","rupeespawn"]};
+}

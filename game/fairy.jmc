@@ -1,0 +1,38 @@
+$counter = 0;
+$startFairy = false;
+
+function trigger_fairy() {
+    resetFairy();
+    summon allay ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,NoAI:1b,Tags:["fairy"]};
+    summon armor_stand ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,NoBasePlate:1b,PersistenceRequired:1b,Tags:["fairy.middle"]};
+    effect give @p minecraft:instant_health 1 5 true;
+    execute as @p at @s run playsound sounds.effect:fairyheal master @p;
+    clear @p minecraft:experience_bottle 1;
+
+    $startFairy = true;
+}
+
+function animate_fairy() {
+    if($startFairy) {
+        if($counter < 50) {
+                execute as @p at @s run teleport @e[tag=fairy.middle] ~ ~1 ~;
+                execute as @e[tag=fairy.middle] at @s run teleport @e[tag=fairy] ^ ^ ^1.5 facing entity @e[tag=fairy.middle,limit=1];
+                execute as @e[tag=fairy.middle] at @s run teleport @e[tag=fairy.middle] ~ ~ ~ ~30 ~;
+
+                execute as @e[tag=fairy] at @s run particle minecraft:firework ~ ~ ~ 0.1 0.1 0.1 0.1 1;
+            $counter++;
+        }
+        else {
+            $counter = 0;
+            resetFairy();
+        }
+    }
+}
+
+function resetFairy() {
+    effect give @e[tag=fairy] invisibility infinite 255 true;
+    tp @e[tag=fairy] ~ ~1000 ~;
+    kill @e[tag=fairy];
+    kill @e[tag=fairy.middle];
+    $startFairy = false;
+}
