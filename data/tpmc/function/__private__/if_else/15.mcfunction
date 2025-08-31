@@ -1,0 +1,2 @@
+execute if score $amethystInv __variable__ matches 1.. run function tpmc:__private__/if_else/13
+execute if score __if_else__ __variable__ matches 0 if score $copperInv __variable__ matches 1.. run function tpmc:__private__/if_else/14

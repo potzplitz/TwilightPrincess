@@ -1,2 +1,4 @@
-function tpmc:grass/remove
-function tpmc:savestate/save
+execute store result score $gamerunning __variable__ run scoreboard players get #gamerunning __global__
+scoreboard players set __if_else__ __variable__ 0
+execute if score $gamerunning __variable__ matches 0 run function tpmc:__private__/if_else/21
+execute if score __if_else__ __variable__ matches 0 run function tpmc:__private__/if_else/22

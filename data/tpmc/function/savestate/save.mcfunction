@@ -1,0 +1,1 @@
+scoreboard players operation #rupeeCounter __save__ = @a rupeeCounter

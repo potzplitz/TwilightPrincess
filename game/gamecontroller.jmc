@@ -6,17 +6,32 @@ function startroutine() {
     Grass.place();
     Player.prepare_player();
 
+    $newgame = 1;
+
     if($newgame != 1) { // Load game
         Savestate.load();
 
     } else { // New game
         Savestate.new();
     }
+
+    scoreboard players set #gamerunning __global__ 1;
+
+    Text.tellraw(@a, "Game Started!");
 }
 
 function quitroutine() {
-    Grass.remove();
-    Savestate.save();
+    $gamerunning = scoreboard players get #gamerunning __global__;
+
+    if($gamerunning == 0) {
+        Text.tellraw(@s, "§4Game is already stopped!");
+    } else {
+        Grass.remove();
+        Savestate.save();
+        Savestate.Reset.soft();
+        Text.tellraw(@a, "Game Stopped!");
+        scoreboard players set #gamerunning __global__ 0;
+    }
 }
 
 function autosave() {

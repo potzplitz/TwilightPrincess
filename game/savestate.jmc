@@ -2,11 +2,11 @@ import "items.jmc";
 
 class Savestate {
     function save() {
-        
+        scoreboard players operation #rupeeCounter __save__ = @a rupeeCounter;
     }
 
     function load() {
-
+        scoreboard players operation @a rupeeCounter = #rupeeCounter __save__;
     }
 
     function new() {
@@ -15,11 +15,11 @@ class Savestate {
 
     class Reset {
         function hard() {
-
+            scoreboard players reset #rupeeCounter __save__;
         }
 
         function soft() {
-
+            scoreboard players reset @p rupeeCounter;
         }
     }
 }

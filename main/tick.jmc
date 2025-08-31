@@ -1,9 +1,19 @@
 import "../game/lobby.jmc";
 import "../game/fairy.jmc";
 import "../util/roles.jmc";
+import "../game/rupee.jmc";
 
 function tick() {
     lobby_particles();
     animate_fairy();
     devrole.devemitter();
+    tick_started_game();
+}
+
+function tick_started_game() { // only executes if the game is running
+    $gamerunning = scoreboard players get #gamerunning __global__;
+    if($gamerunning == 1) {
+        detect_rupee();
+        countRupee();
+    }
 }

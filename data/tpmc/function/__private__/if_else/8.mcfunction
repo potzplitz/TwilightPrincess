@@ -1,2 +1,2 @@
-function tpmc:savestate/load
-scoreboard players set __if_else__ __variable__ 1
+execute as @e[type=item,nbt={Item:{id:"minecraft:wheat_seeds"}},limit=1,sort=nearest] at @s run summon item ~ ~ ~ {PickupDelay:20,Item:{id:"minecraft:emerald",count:1,components:{"minecraft:custom_name":"{\"color\":\"dark_green\",\"text\":\"1 Rupee\"}"}}}
+kill @e[type=item,nbt={Item:{id:"minecraft:wheat_seeds"}}]

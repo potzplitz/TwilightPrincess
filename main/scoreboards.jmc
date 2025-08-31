@@ -1,4 +1,11 @@
 function init_scoreboards() {
     scoreboard objectives add devmessages dummy;
     scoreboard objectives add devemitter_toggle dummy;
+
+    // publics
+    scoreboard objectives add __save__ dummy;
+    scoreboard objectives add __global__ dummy;
+
+    // variables to save in the savestate function in __save__
+    scoreboard objectives add rupeeCounter dummy;
 }

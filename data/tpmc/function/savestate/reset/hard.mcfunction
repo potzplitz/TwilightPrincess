@@ -1,0 +1,1 @@
+scoreboard players reset #rupeeCounter __save__

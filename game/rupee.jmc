@@ -2,6 +2,50 @@ function spawn_rupeespot() {
     summon marker ~ ~ ~ {Tags:["deventity","rupeespawn"]};
 }
 
+function detect_rupee() {
+    $hasSeed = execute if entity @e[type=item,nbt={Item:{id:"minecraft:wheat_seeds"}}];
+    if($hasSeed) {
+        execute as @e[type=item,nbt={Item:{id:"minecraft:wheat_seeds"}},limit=1,sort=nearest] at @s run summon item ~ ~ ~ {PickupDelay:20,Item:{id:"minecraft:emerald",count:1,components:{"minecraft:custom_name":'{"color":"dark_green","text":"1 Rupee"}'}}};
+        kill @e[type=item,nbt={Item:{id:"minecraft:wheat_seeds"}}];   
+    }
+}
+
+function countRupee() {
+
+    $rupeeInv = execute if entity @p[nbt={Inventory:[{id:"minecraft:emerald"}]}];
+    $diamondInv = execute if entity @p[nbt={Inventory:[{id:"minecraft:diamond"}]}];
+    $goldInv = execute if entity @p[nbt={Inventory:[{id:"minecraft:gold_ingot"}]}];
+    $brickInv = execute if entity @p[nbt={Inventory:[{id:"minecraft:brick"}]}];
+    $amethystInv = execute if entity @p[nbt={Inventory:[{id:"minecraft:amethyst_shard"}]}];
+    $copperInv = execute if entity @p[nbt={Inventory:[{id:"minecraft:copper_ingot"}]}];
+
+    if($rupeeInv) { // 1 rupee
+        clear @p emerald;
+        scoreboard players add @p rupeeCounter 1;
+
+    } else if($diamondInv) { // 5 rupees
+        clear @p diamond;
+        scoreboard players add @p rupeeCounter 5;
+
+    } else if($goldInv) { // 10 rupees
+        clear @p gold_ingot;
+        scoreboard players add @p rupeeCounter 10;
+
+    } else if($brickInv) { // 20 rupees
+        clear @p brick;
+        scoreboard players add @p rupeeCounter 20;
+
+    } else if($amethystInv) { // 50 rupees
+        clear @p amethyst_shard;
+        scoreboard players add @p rupeeCounter 50;
+
+    } else if($copperInv) { // 100 rupees
+        clear @p copper_ingot;
+        scoreboard players add @p rupeeCounter 100;
+
+    }
+}
+
 class Grass {
     function place() {
         execute at @e[tag=rupeespawn] run fill ~-1 ~ ~-1 ~1 ~ ~1 short_grass replace air;
