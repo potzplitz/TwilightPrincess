@@ -1,16 +1,30 @@
 import "../game/soundengine.jmc";
+import "../game/gamecontroller.jmc";
 
 class Timer {
-    function execute_second() {
+
+    function execute_minute() { // gets executed every minute
+
+    }
+
+    function execute_second() { // gets executed every second
+
+        $timer_second++;
+        if($timer_second == 60) {
+            $timer_second = 0;
+            Timer.execute_minute();
+        }
+
         if($gamerunning) {
             Soundengine.Sfx.play_sfx();
+            autosave();
         }
     }
 
-    function timer() {
-        $timer++;
-        if($timer == 20) {
-            $timer = 0;
+    function timer() { // gets executed every tick
+        $timer_tick++;
+        if($timer_tick == 20) {
+            $timer_tick = 0;
             Timer.execute_second();
         }
     }

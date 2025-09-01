@@ -1,1 +1,2 @@
 scoreboard players operation #rupeeCounter __save__ = @a rupeeCounter
+execute as @p at @s run summon armor_stand ~ ~ ~ {CustomNameVisible:0b,NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,PersistenceRequired:1b,Tags:["quit.tpback"],CustomName:'{"text":""}'}

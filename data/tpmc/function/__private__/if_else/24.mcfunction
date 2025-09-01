@@ -1,5 +1,3 @@
-function tpmc:grass/remove
+tellraw @a "\u00a77Saving game..."
+scoreboard players set $autosave __variable__ 0
 function tpmc:savestate/save
-function tpmc:savestate/reset/soft
-tellraw @a "Game Stopped!"
-scoreboard players set #gamerunning __global__ 0

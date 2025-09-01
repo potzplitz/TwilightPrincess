@@ -1,12 +1,14 @@
 class Player {
     function prepare_player() {
         attribute @p minecraft:max_health base set 6;
+        effect give @p minecraft:saturation infinite 255 true;
         gamemode adventure @p;
         clear @p;
     }    
 
     function reset_player() {
         clear @p;
+        effect clear @p;
         attribute @p minecraft:max_health base set 20;
     }
 }

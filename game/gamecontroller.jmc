@@ -2,9 +2,14 @@ import "rupee.jmc";
 import "savestate.jmc";
 import "player.jmc";
 import "soundengine.jmc";
+import "map.jmc";
 
 function startroutine() {
-    Grass.place();
+    Text.tellraw(@a[scores={devmessages=1..}], "starting game...");
+    Text.tellraw(@a[scores={devmessages=1..}], "Executing start routine...");
+    Text.tellraw(@a[scores={devmessages=1..}], "preparing map...");
+    init_map();
+    Text.tellraw(@a[scores={devmessages=1..}], "preparing player for game...");
     Player.prepare_player();
     Soundengine.constants();
     Soundengine.Sfx.init();
@@ -12,15 +17,20 @@ function startroutine() {
     $newgame = 1;
 
     if($newgame != 1) { // Load game
+        Text.tellraw(@a[scores={devmessages=1..}], "loading previous savestate...");
         Savestate.load();
 
     } else { // New game
+        Text.tellraw(@a[scores={devmessages=1..}], "creating new game...");
         Savestate.new();
     }
 
     scoreboard players set #gamerunning __global__ 1;
 
-    Text.tellraw(@a, "Game Started!");
+    Text.tellraw(@a[scores={devmessages=1..}], "joining game...");
+    tp @p 19.83 -20.00 -125.18;
+
+    Text.tellraw(@a[scores={devmessages=1..}], "§2game started!");
 }
 
 function quitroutine() {
@@ -29,14 +39,25 @@ function quitroutine() {
     if($gamerunning == 0) {
         Text.tellraw(@s, "§4Game is already stopped!");
     } else {
-        Grass.remove();
+        Text.tellraw(@a[scores={devmessages=1..}], "resetting map...");
+        reset_map();
+        Text.tellraw(@a[scores={devmessages=1..}], "resetting player...");
+        Player.reset_player();
+        Text.tellraw(@a[scores={devmessages=1..}], "saving game...");
         Savestate.save();
         Savestate.Reset.soft();
-        Text.tellraw(@a, "Game Stopped!");
+        Text.tellraw(@a[scores={devmessages=1..}], "joining lobby... [WIP]");
+        Text.tellraw(@a, "§2Game Stopped!");
         scoreboard players set #gamerunning __global__ 0;
     }
 }
 
 function autosave() {
-    
+    $autosave++;
+
+    if($autosave >= 60) {
+        Text.tellraw(@a, "§7Saving game...");
+        $autosave = 0;
+        Savestate.save();
+    }
 }

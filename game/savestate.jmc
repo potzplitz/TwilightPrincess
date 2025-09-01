@@ -3,6 +3,7 @@ import "items.jmc";
 class Savestate {
     function save() {
         scoreboard players operation #rupeeCounter __save__ = @a rupeeCounter;
+        execute as @p at @s run summon armor_stand ~ ~ ~ {CustomNameVisible:0b,NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,PersistenceRequired:1b,Tags:["quit.tpback"],CustomName:'{"text":""}'};
     }
 
     function load() {
@@ -17,15 +18,24 @@ class Savestate {
         function hard() {
             scoreboard objectives remove __save__;
             scoreboard objectives add __save__ dummy;
+
+            kill @e[tag=quit.tpback];
+            scoreboard players set @p rupeeCounter 0;
         }
 
         function soft() {
             execute as @p at @s run stopsound @a;
             
             scoreboard players reset @p rupeeCounter;
-
             scoreboard objectives remove __sound__;
             scoreboard objectives add sound dummy;
+
+            kill @e[tag=ranch.goat];
+            kill @e[tag=epona];
+            kill @e[tag=wolf];
+            kill @e[tag=maro];
+            kill @e[tag=npc.uli];
+            kill @e[tag=crate.fairy];
         }
     }
 }

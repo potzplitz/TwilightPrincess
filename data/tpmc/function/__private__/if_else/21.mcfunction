@@ -1,2 +1,2 @@
-function tpmc:detect_rupee
-function tpmc:countrupee
+tellraw @a[scores={devmessages=1..}] "creating new game..."
+function tpmc:savestate/new

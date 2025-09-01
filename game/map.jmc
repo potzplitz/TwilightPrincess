@@ -1,3 +1,5 @@
+import "rupee.jmc";
+
 class Fairycrate {
     function spawn() {
 
@@ -5,5 +7,21 @@ class Fairycrate {
 }
 
 class Npcs {
-    function spawn();
+    function spawn() {
+
+    }
+}
+
+function init_map() {
+    time set 0;
+    kill @e[type=item];
+    gamerule doDaylightCycle true;
+    Grass.place();
+}
+
+function reset_map() {
+    Grass.remove();
+    gamerule doDaylightCycle false;
+    kill @e[type=item];
+    time set 0;
 }

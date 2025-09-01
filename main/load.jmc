@@ -7,7 +7,6 @@ import "scoreboards.jmc";
 import "../util/roles.jmc";
 
 function load() {
-    to_lobby();
     init_scoreboards();
     quitroutine();
     Savestate.save();
