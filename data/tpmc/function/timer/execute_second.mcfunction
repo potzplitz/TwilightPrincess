@@ -1,0 +1,1 @@
+execute if score $gamerunning __variable__ matches 1.. run function tpmc:soundengine/sfx/play_sfx

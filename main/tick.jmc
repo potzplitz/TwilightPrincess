@@ -2,12 +2,14 @@ import "../game/lobby.jmc";
 import "../game/fairy.jmc";
 import "../util/roles.jmc";
 import "../game/rupee.jmc";
+import "../util/timer.jmc";
 
 function tick() {
     lobby_particles();
     animate_fairy();
     devrole.devemitter();
     tick_started_game();
+    Timer.timer();
 }
 
 function tick_started_game() { // only executes if the game is running

@@ -6,11 +6,13 @@ class devrole {
             Text.tellraw(@s, "§2You have been assigned the dev role!");
             effect give @e[tag=deventity] glowing infinite 255 true;
             scoreboard players set @p devmessages 1;
+            //scoreboard objectives setdisplay sidebar __variable__;
             
         } else {
             Text.tellraw(@s, "§4Dev role removed!");
             effect clear @e[tag=deventity] glowing;
             scoreboard players set @p devmessages 0;
+            //scoreboard objectives setdisplay sidebar;
         }
     }
 

@@ -1,0 +1,1 @@
+scoreboard players set $how_long_windsfx __variable__ 33

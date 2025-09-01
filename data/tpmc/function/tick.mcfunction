@@ -2,3 +2,4 @@ function tpmc:lobby_particles
 function tpmc:animate_fairy
 function tpmc:devrole/devemitter
 function tpmc:tick_started_game
+function tpmc:timer/timer

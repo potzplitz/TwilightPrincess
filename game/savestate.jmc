@@ -15,11 +15,17 @@ class Savestate {
 
     class Reset {
         function hard() {
-            scoreboard players reset #rupeeCounter __save__;
+            scoreboard objectives remove __save__;
+            scoreboard objectives add __save__ dummy;
         }
 
         function soft() {
+            execute as @p at @s run stopsound @a;
+            
             scoreboard players reset @p rupeeCounter;
+
+            scoreboard objectives remove __sound__;
+            scoreboard objectives add sound dummy;
         }
     }
 }

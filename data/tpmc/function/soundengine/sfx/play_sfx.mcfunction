@@ -1,0 +1,2 @@
+scoreboard players add $current __variable__ 1
+execute if score $current __variable__ >= $how_long_windsfx __variable__ if score $gamerunning __variable__ matches 1.. run function tpmc:__private__/if_else/19

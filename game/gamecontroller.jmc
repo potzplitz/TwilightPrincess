@@ -1,10 +1,13 @@
 import "rupee.jmc";
 import "savestate.jmc";
 import "player.jmc";
+import "soundengine.jmc";
 
 function startroutine() {
     Grass.place();
     Player.prepare_player();
+    Soundengine.constants();
+    Soundengine.Sfx.init();
 
     $newgame = 1;
 

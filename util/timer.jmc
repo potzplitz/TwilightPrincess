@@ -1,0 +1,17 @@
+import "../game/soundengine.jmc";
+
+class Timer {
+    function execute_second() {
+        if($gamerunning) {
+            Soundengine.Sfx.play_sfx();
+        }
+    }
+
+    function timer() {
+        $timer++;
+        if($timer == 20) {
+            $timer = 0;
+            Timer.execute_second();
+        }
+    }
+}

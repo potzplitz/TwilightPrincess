@@ -1,0 +1,25 @@
+class Soundengine {
+
+    class Sfx {
+        function play_sfx() {
+            $current++;
+            
+            if($current >= $how_long_windsfx && $gamerunning) {
+                execute as @p at @s run stopsound @p master sounds.atmo:windsfx;
+                execute as @p at @s run playsound sounds.atmo:windsfx master @p;
+                $current = 0;
+            }
+        }
+
+        function init() {
+            $current = 0;
+            stopsound @a master sounds.atmo:windsfx;
+            playsound sounds.atmo:windsfx master @a;
+        }
+    }
+
+    function constants() {
+        // constants for how long each track is
+        $how_long_windsfx = 33;
+    }
+}

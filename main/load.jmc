@@ -2,12 +2,14 @@ import "../game/lobby.jmc";
 import "../game/savestate.jmc";
 import "../game/items.jmc";
 import "../game/rupee.jmc";
+import "../game/gamecontroller.jmc";
 import "scoreboards.jmc";
 import "../util/roles.jmc";
 
 function load() {
     to_lobby();
     init_scoreboards();
+    quitroutine();
     Savestate.save();
     Savestate.Reset.soft();
 }

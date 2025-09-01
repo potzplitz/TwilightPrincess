@@ -1,2 +1,2 @@
-function tpmc:savestate/load
-scoreboard players set __if_else__ __variable__ 1
+scoreboard players set $timer __variable__ 0
+function tpmc:timer/execute_second
