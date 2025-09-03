@@ -1,0 +1,2 @@
+execute store result score $hasSeed __variable__ if entity @e[type=item,nbt={Item:{id:"minecraft:wheat_seeds"}}]
+execute if score $hasSeed __variable__ matches 1.. run function tpmc:__private__/if_else/7
