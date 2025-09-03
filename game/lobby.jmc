@@ -3,16 +3,20 @@ function to_lobby() {
 }
 
 function lobby_splash() {
-        $hasDevRole = scoreboard players get @p devmessages;
-    if(!$hasDevRole == 1) {
+        //$hasDevRole = scoreboard players get @p devmessages;
+    //if(!$hasDevRole == 1) {
+        for($i = 0; $i <= 10; $i++) {
+            tellraw @p {"text":"","color":"dark_gray"};
+        }
+
         tellraw @p {"text":"transfering to lobby..","color":"dark_gray"};
         $lobbyEnabled = true;
         tellraw @p {"text":"Welcome to Twilight princess in Minecraft!","color":"dark_red"};
         tellraw @a {"text":" ","color":"dark_blue"};
-        tellraw @a {"text":"Map built by DerPlitton & potzplitz","color":"dark_green"};
+        tellraw @a {"text":"Map by Jbean10, datapack by potzplitz","color":"dark_green"};
         tellraw @p {"text":"Map inspired by Nintendo: The legend of Zelda: Twilight princess HD (Wii U-Edition)","color":"dark_blue"};
         tellraw @a {"text":"Map build: Alpha 3.0","color":"yellow"};
-        tp @p 7 -26 -125;
+        tp @p 72.99 -7.02 49.00;
         stopsound @a;
         attribute @p minecraft:max_health base set 20;
         effect give @a minecraft:regeneration 99999 255 true;
@@ -30,7 +34,7 @@ function lobby_splash() {
         title @a subtitle {"text":"to Twilight Princess in Minecraft! ","color":"dark_purple"};
         execute as @p at @s run playsound minecraft:block.beacon.power_select master @a;
         execute if score @p devmessages matches 1.. run tellraw @p {"text":"Debug messages are currently on. You can disable them in the settings.","color":"gray"};
-    }
+    //}
 }
 
 function lobby_particles() {

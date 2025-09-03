@@ -3,6 +3,17 @@ import "savestate.jmc";
 import "player.jmc";
 import "soundengine.jmc";
 import "map.jmc";
+import "lobby.jmc";
+
+function loadgame() {
+    scoreboard players set #newgame __global__ 0;
+    startroutine();
+}
+
+function newgame() {
+    scoreboard players set #newgame __global__ 1;
+    startroutine(); 
+}
 
 function startroutine() {
     Text.tellraw(@a[scores={devmessages=1..}], "starting game...");
@@ -14,7 +25,7 @@ function startroutine() {
     Soundengine.constants();
     Soundengine.Sfx.init();
 
-    $newgame = 1;
+    $newgame = scoreboard players get #newgame __global__;
 
     if($newgame != 1) { // Load game
         Text.tellraw(@a[scores={devmessages=1..}], "loading previous savestate...");
@@ -28,7 +39,6 @@ function startroutine() {
     scoreboard players set #gamerunning __global__ 1;
 
     Text.tellraw(@a[scores={devmessages=1..}], "joining game...");
-    tp @p 19.83 -20.00 -125.18;
 
     Text.tellraw(@a[scores={devmessages=1..}], "§2game started!");
 }
@@ -37,7 +47,8 @@ function quitroutine() {
     $gamerunning = scoreboard players get #gamerunning __global__;
 
     if($gamerunning == 0) {
-        Text.tellraw(@s, "§4Game is already stopped!");
+        Text.tellraw(@p, "§4Game is already stopped!");
+        to_lobby();
     } else {
         Text.tellraw(@a[scores={devmessages=1..}], "resetting map...");
         reset_map();
@@ -47,6 +58,7 @@ function quitroutine() {
         Savestate.save();
         Savestate.Reset.soft();
         Text.tellraw(@a[scores={devmessages=1..}], "joining lobby... [WIP]");
+        to_lobby();
         Text.tellraw(@a, "§2Game Stopped!");
         scoreboard players set #gamerunning __global__ 0;
     }
@@ -56,7 +68,9 @@ function autosave() {
     $autosave++;
 
     if($autosave >= 60) {
-        Text.tellraw(@a, "§7Saving game...");
+        title @a times 10 60 10;
+        title @a actionbar {"text":"Saving game...","color":"dark_gray"};
+
         $autosave = 0;
         Savestate.save();
     }

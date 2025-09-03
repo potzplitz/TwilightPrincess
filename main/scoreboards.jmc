@@ -3,10 +3,11 @@ function init_scoreboards() {
     scoreboard objectives add devemitter_toggle dummy;
 
     // publics
+    scoreboard objectives add __gamecache__ dummy; // holds the variables that happen in the game for example if player obtains sword, every save this variable gets transfered in the __save__ function
     scoreboard objectives add __save__ dummy;
     scoreboard objectives add __global__ dummy;
     scoreboard objectives add __sound__ dummy;
 
-    // variables to save in the savestate function in __save__
+    // variables to save in the savestate function in __save__ => save this scoreboard as #dummy in the __save__ scoreboard
     scoreboard objectives add rupeeCounter dummy;
 }

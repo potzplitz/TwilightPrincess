@@ -1,2 +1,2 @@
-scoreboard players set $timer_tick __variable__ 0
-function tpmc:timer/execute_second
+function tpmc:detect_rupee
+function tpmc:countrupee

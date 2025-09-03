@@ -1,3 +1,2 @@
-clear @p amethyst_shard
-scoreboard players add @p rupeeCounter 50
-scoreboard players set __if_else__ __variable__ 1
+clear @p copper_ingot
+scoreboard players add #rupeeCounter __gamecache__ 100

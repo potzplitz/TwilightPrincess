@@ -20,6 +20,6 @@ class Soundengine {
 
     function constants() {
         // constants for how long each track is
-        $how_long_windsfx = 33;
+        $how_long_windsfx = 34;
     }
 }

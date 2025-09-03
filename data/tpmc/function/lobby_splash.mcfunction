@@ -1,2 +1,27 @@
-execute store result score $hasDevRole __variable__ run scoreboard players get @p devmessages
-execute unless score $hasDevRole __variable__ matches 1 run function tpmc:__private__/if_else/0
+scoreboard players set $i __variable__ 0
+execute if score $i __variable__ matches ..10 run function tpmc:__private__/for_loop/0
+tellraw @p {"text":"transfering to lobby..","color":"dark_gray"}
+scoreboard players set $lobbyEnabled __variable__ 1
+tellraw @p {"text":"Welcome to Twilight princess in Minecraft!","color":"dark_red"}
+tellraw @a {"text":" ","color":"dark_blue"}
+tellraw @a {"text":"Map by Jbean10, datapack by potzplitz","color":"dark_green"}
+tellraw @p {"text":"Map inspired by Nintendo: The legend of Zelda: Twilight princess HD (Wii U-Edition)","color":"dark_blue"}
+tellraw @a {"text":"Map build: Alpha 3.0","color":"yellow"}
+tp @p 72.99 -7.02 49.00
+stopsound @a
+attribute @p minecraft:max_health base set 20
+effect give @a minecraft:regeneration 99999 255 true
+effect give @a minecraft:saturation 99999 255 true
+effect give @a minecraft:resistance 99999 255 true
+gamemode adventure @a
+clear @a
+gamerule doDaylightCycle false
+time set 6000
+gamerule sendCommandFeedback true
+tellraw @a {"text":" ","color":"dark_blue"}
+tellraw @p {"text":"[click here for more info]","color":"dark_gray","clickEvent":{"action":"run_command","value":"/tp @s 372.30 65.66 -92.00"}}
+title @a times 10 40 10
+title @a title ["",{"text":"Welcome, ","color":"dark_purple"},{"selector":"@p","color":"dark_green"},{"text":"!","color":"dark_purple"}]
+title @a subtitle {"text":"to Twilight Princess in Minecraft! ","color":"dark_purple"}
+execute as @p at @s run playsound minecraft:block.beacon.power_select master @a
+execute if score @p devmessages matches 1.. run tellraw @p {"text":"Debug messages are currently on. You can disable them in the settings.","color":"gray"}

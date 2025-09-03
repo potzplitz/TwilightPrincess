@@ -1,2 +1,0 @@
-execute store result score $devemitter_toggle __variable__ run scoreboard players get @p devemitter_toggle
-execute unless score $devmessages __variable__ matches 1 unless score $devemitter_toggle __variable__ matches 0 as @e[tag=deventity] at @s run particle minecraft:portal ~ ~ ~ 0 0 0 0.3 10

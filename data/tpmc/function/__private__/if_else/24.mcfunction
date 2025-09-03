@@ -1,3 +1,2 @@
-tellraw @a "\u00a77Saving game..."
-scoreboard players set $autosave __variable__ 0
-function tpmc:savestate/save
+scoreboard players set $timer_second __variable__ 0
+function tpmc:timer/execute_minute

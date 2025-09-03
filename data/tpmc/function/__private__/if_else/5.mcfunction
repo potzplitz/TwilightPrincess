@@ -1,3 +1,3 @@
-tellraw @s "\u00a74Dev role removed!"
-effect clear @e[tag=deventity] glowing
-scoreboard players set @p devmessages 0
+scoreboard players set @p devemitter_toggle 1
+tellraw @s "\u00a72dev emitter activated!"
+scoreboard players set __if_else__ __variable__ 1

@@ -1,2 +1,0 @@
-function tpmc:detect_rupee
-function tpmc:countrupee

@@ -1,3 +1,3 @@
-execute as @p at @s run stopsound @p master sounds.atmo:windsfx
-execute as @p at @s run playsound sounds.atmo:windsfx master @p
-scoreboard players set $current __variable__ 0
+tellraw @a[scores={devmessages=1..}] "loading previous savestate..."
+function tpmc:savestate/load
+scoreboard players set __if_else__ __variable__ 1

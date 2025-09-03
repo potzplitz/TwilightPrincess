@@ -1,4 +1,3 @@
-tellraw @s "\u00a72You have been assigned the dev role!"
-effect give @e[tag=deventity] glowing infinite 255 true
-scoreboard players set @p devmessages 1
-scoreboard players set __if_else__ __variable__ 1
+tellraw @s "\u00a74Dev role removed!"
+effect clear @e[tag=deventity] glowing
+scoreboard players set @p devmessages 0

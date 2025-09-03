@@ -1,2 +1,3 @@
-execute if score $diamondInv __variable__ matches 1.. run function tpmc:__private__/if_else/10
-execute if score __if_else__ __variable__ matches 0 run function tpmc:__private__/if_else/17
+execute as @p at @s run stopsound @p master sounds.atmo:windsfx
+execute as @p at @s run playsound sounds.atmo:windsfx master @p
+scoreboard players set $current __variable__ 0
