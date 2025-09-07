@@ -1,2 +1,2 @@
-scoreboard players set $timer_tick __variable__ 0
-function tpmc:timer/execute_second
+function tpmc:soundengine/sfx/play_sfx
+function tpmc:autosave

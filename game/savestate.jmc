@@ -11,6 +11,9 @@ class Savestate {
         scoreboard players operation #hasWoodenSword __save__ = #hasWoodenSword __gamecache__;
         scoreboard players operation #rupeeCounter __save__ = #rupeeCounter __gamecache__;
 
+        // indicates if there is a saved game or not => sets it to existing
+        scoreboard players set #save_existing __global__ 1;
+
     }
 
     function load() {
@@ -35,21 +38,23 @@ class Savestate {
     }
 
     class Reset {
-        function hard() {
+        function hard() { // resets the whole game
+            Savestate.Reset.soft();
+
             scoreboard objectives remove __save__;
             scoreboard objectives add __save__ dummy;
 
+            // indicates if there is a saved game or not => sets it to not existing
+            scoreboard players set #save_existing __global__ 0;
+
             kill @e[tag=quit.tpback];
-            scoreboard players set @p rupeeCounter 0;
         }
 
-        function soft() {
+        function soft() { // resets gamecache, map and sound
             execute as @p at @s run stopsound @a;
-            
-            scoreboard players reset @p rupeeCounter;
 
             scoreboard objectives remove __sound__;
-            scoreboard objectives add sound dummy;
+            scoreboard objectives add __sound__ dummy;
 
             scoreboard objectives remove __gamecache__;
             scoreboard objectives add __gamecache__ dummy;

@@ -1,7 +1,6 @@
 execute as @p at @s run stopsound @a
-scoreboard players reset @p rupeeCounter
 scoreboard objectives remove __sound__
-scoreboard objectives add sound dummy
+scoreboard objectives add __sound__ dummy
 scoreboard objectives remove __gamecache__
 scoreboard objectives add __gamecache__ dummy
 kill @e[tag=ranch.goat]

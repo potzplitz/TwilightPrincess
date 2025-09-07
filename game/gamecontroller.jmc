@@ -6,8 +6,15 @@ import "map.jmc";
 import "lobby.jmc";
 
 function loadgame() {
-    scoreboard players set #newgame __global__ 0;
-    startroutine();
+
+    $save_exists = scoreboard players get #save_existing __global__;
+
+    if($save_exists == 1) {
+        scoreboard players set #newgame __global__ 0;
+        startroutine();
+    } else {
+        Text.tellraw(@p, "§4There is no existing saved game! Start a new game first!");
+    }
 }
 
 function newgame() {
@@ -39,7 +46,6 @@ function startroutine() {
     scoreboard players set #gamerunning __global__ 1;
 
     Text.tellraw(@a[scores={devmessages=1..}], "joining game...");
-
     Text.tellraw(@a[scores={devmessages=1..}], "§2game started!");
 }
 

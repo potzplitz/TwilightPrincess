@@ -9,6 +9,4 @@ import "../util/roles.jmc";
 function load() {
     init_scoreboards();
     quitroutine();
-    Savestate.save();
-    Savestate.Reset.soft();
 }
