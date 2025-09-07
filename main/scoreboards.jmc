@@ -9,5 +9,4 @@ function init_scoreboards() {
     scoreboard objectives add __sound__ dummy;
 
     // variables to save in the savestate function in __save__ => save this scoreboard as #dummy in the __save__ scoreboard
-    scoreboard objectives add rupeeCounter dummy;
 }

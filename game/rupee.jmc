@@ -1,3 +1,5 @@
+import "destroyables/grass.jmc";
+
 function spawn_rupeespot() {
     summon marker ~ ~ ~ {Tags:["deventity","rupeespawn"]};
 }
@@ -43,16 +45,6 @@ function countRupee() {
         clear @p copper_ingot;
         scoreboard players add #rupeeCounter __gamecache__ 100;
 
-    }
-}
-
-class Grass {
-    function place() {
-        execute at @e[tag=rupeespawn] run fill ~-1 ~ ~-1 ~1 ~ ~1 short_grass replace air;
-    }
-
-    function remove() {
-        execute at @e[tag=rupeespawn] run fill ~-1 ~ ~-1 ~1 ~ ~1 air replace short_grass;
     }
 }
 

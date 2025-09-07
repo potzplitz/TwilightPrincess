@@ -1,0 +1,2 @@
+execute store result score $hasPumpkin __variable__ if entity @e[type=item,nbt={Item:{id:"minecraft:pumpkin"}}]
+execute if score $hasPumpkin __variable__ matches 1.. run function tpmc:__private__/if_else/19

@@ -16,6 +16,16 @@ class Soundengine {
             stopsound @a master sounds.atmo:windsfx;
             playsound sounds.atmo:windsfx master @a;
         }
+
+        function start() {
+            Soundengine.Sfx.init();
+            scoreboard players set #sfx_running __music__ 1;
+        }
+
+        function stop() {
+            stopsound @a master sounds.atmo:windsfx;
+            scoreboard players set #sfx_running __music__ 0;
+        }
     }
 
     function constants() {

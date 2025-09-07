@@ -3,6 +3,7 @@ import "../game/fairy.jmc";
 import "../util/roles.jmc";
 import "../game/rupee.jmc";
 import "../util/timer.jmc";
+import "../game/destroyables/pumpkin.jmc";
 
 function tick() {
     lobby_particles();
@@ -16,6 +17,7 @@ function tick_started_game() { // only executes if the game is running
     $gamerunning = scoreboard players get #gamerunning __global__;
     if($gamerunning == 1) {
         detect_rupee();
+        Pumpkin.detect_pumpkin();
         countRupee();
     }
 }

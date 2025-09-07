@@ -1,4 +1,4 @@
-import "rupee.jmc";
+import "destroyables/destroymanager.jmc";
 
 class Fairycrate {
     function spawn() {
@@ -16,11 +16,11 @@ function init_map() {
     time set 0;
     kill @e[type=item];
     gamerule doDaylightCycle true;
-    Grass.place();
+    Destroyables.placeAll();
 }
 
 function reset_map() {
-    Grass.remove();
+    Destroyables.removeAll();
     gamerule doDaylightCycle false;
     kill @e[type=item];
     time set 0;

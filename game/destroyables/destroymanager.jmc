@@ -1,0 +1,14 @@
+import "grass.jmc";
+import "pumpkin.jmc";
+
+class Destroyables {
+    function placeAll() {
+        Pumpkin.place();
+        Grass.place();
+    }
+
+    function removeAll() {
+        Pumpkin.remove();
+        Grass.remove();
+    }
+}

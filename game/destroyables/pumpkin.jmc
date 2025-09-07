@@ -1,0 +1,24 @@
+class Pumpkin {
+    function place() {
+        execute at @e[tag=pumpkinspawn] run setblock ~ ~ ~ pumpkin;
+        execute at @e[tag=pumpkinspawn] run setblock ~ ~1 ~ sea_pickle[waterlogged=false];
+    }
+
+    function remove() {
+        execute at @e[tag=pumpkinspawn] run setblock ~ ~ ~ air;
+        execute at @e[tag=pumpkinspawn] run setblock ~ ~1 ~ air;
+    }
+
+    function spawn_pumpkinspot() {
+        summon marker ~ ~ ~ {Tags:["deventity","pumpkinspawn"]};
+    }
+
+    function detect_pumpkin() {
+        $hasPumpkin = execute if entity @e[type=item,nbt={Item:{id:"minecraft:pumpkin"}}];
+        if($hasPumpkin) {
+            execute as @e[type=item,nbt={Item:{id:"minecraft:pumpkin"}},limit=1,sort=nearest] at @s run summon item ~ ~ ~ {PickupDelay:20,Item:{id:"minecraft:emerald",count:1,components:{"minecraft:custom_name":'{"color":"dark_green","text":"1 Rupee"}'}}};
+            kill @e[type=item,nbt={Item:{id:"minecraft:pumpkin"}}];   
+            kill @e[type=item,nbt={Item:{id:"minecraft:sea_pickle"}}];
+        }
+    }   
+}
